@@ -22,7 +22,7 @@ public class Main {
                         "Insira o cpf: "));
                         for (int i = 0; i < 10; i++){
                             if(agenda[i] instanceof Fisic){
-                            if(choose == agenda[i].getCpf())
+                            //if(choose == agenda[i].getCpf())
                             }
                         }
                 break;

@@ -32,7 +32,9 @@ public class Data {
 
     public int Same(String Date1, String Date2){
         if (Date1 == Date2) return 0 ;
-        else{}
+        else{
+            return 1;
+        }
     }
 
     // #region Getters and Setters
