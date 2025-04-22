@@ -8,6 +8,30 @@ import Lista4.Ex2Array.Agenda.Types.Legal;
 
 public class Main {
 
+    public static void order(Agenda[] agenda) {
+        // Agenda[] orderned = new Agenda[agenda.length];
+        // orderned[0] = agenda[0];
+        if (agenda[0] instanceof Fisic) {
+            for (int i = 0; i < agenda.length; i++) {
+                for (int j = 0; j < agenda.length; j++) {
+                    if (((Fisic) agenda[i]).getCpf() > ((Fisic) agenda[j]).getCpf()) {
+                        Agenda temp = agenda[j];
+                        agenda[j] = agenda[i];
+                        agenda[i] = temp;
+                        System.out.println(agenda[i]);
+                        System.out.println(agenda[j]);
+
+                    }
+                }
+            }
+
+        }
+        if (agenda[0] instanceof Legal) {
+
+        }
+
+    }
+
     public static void addContact(Agenda[] agenda, int id) {
         agenda[id].add();
     }
@@ -39,7 +63,9 @@ public class Main {
     }
 
     public static void showContacts(Agenda[] agenda) {
+
         String show = "";
+
         for (int i = 0; i < 10; i++) {
             if (agenda[i].getName() != null) {
                 show += agenda[i].show() + "\n";
@@ -49,7 +75,7 @@ public class Main {
         JOptionPane.showMessageDialog(null, show);
     }
 
-    public static void searchContact(Agenda[] agenda, int choose){
+    public static void searchContact(Agenda[] agenda, int choose) {
         String show = "Contato não encontrado";
         switch (choose) {
             case 0:
@@ -76,6 +102,7 @@ public class Main {
         JOptionPane.showMessageDialog(null, show);
 
     }
+
     public static void main(String[] args) {
         int choose, idFisc = 0, idLegal = 0;
         JOptionPane.showMessageDialog(null, "Bem-vindo à sua agenda pessoal");
@@ -127,7 +154,7 @@ public class Main {
                             removeContact(agendaFisic, choose);
                             break;
                         case 1:
-                            removeContact(agendaFisic, choose);
+                            removeContact(agendaLegal, choose);
                             break;
                         default:
                             JOptionPane.showMessageDialog(null, "ERROR - ENTRADA INVÁLIDA");
@@ -137,7 +164,7 @@ public class Main {
                     break;
 
                 case 3:
-                choose = Integer.parseInt(JOptionPane.showInputDialog(null,
+                    choose = Integer.parseInt(JOptionPane.showInputDialog(null,
                             "[0] Pessoa física\n[1] Pessoa jurídica\nInsira o tipo: "));
                     switch (choose) {
                         case 0:
@@ -150,8 +177,8 @@ public class Main {
                             JOptionPane.showMessageDialog(null, "ERROR - ENTRADA INVÁLIDA");
                             break;
                     }
-                break;
-                
+                    break;
+
                 case 4:
                     choose = Integer.parseInt(JOptionPane.showInputDialog("[1] Todos\n[2] Físico \n[3] Jurídico\n"));
                     switch (choose) {
