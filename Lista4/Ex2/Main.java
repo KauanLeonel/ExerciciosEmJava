@@ -20,11 +20,11 @@ public class Main {
             case 0:
                 choose = Integer.parseInt(JOptionPane.showInputDialog(null,
                         "Insira o cpf: "));
-                        for (int i = 0; i < 10; i++){
-                            if(agenda[i] instanceof Fisic){
-                            //if(choose == agenda[i].getCpf())
-                            }
-                        }
+                for (int i = 0; i < 10; i++) {
+                    if (agenda[i] instanceof Fisic) {
+                        // if(choose == agenda[i].getCpf())
+                    }
+                }
                 break;
             case 1:
                 choose = Integer.parseInt(JOptionPane.showInputDialog(null,
@@ -36,13 +36,40 @@ public class Main {
         }
     }
 
+    public static void showContacts(Agenda[] agenda) {
+        int choose = Integer.parseInt(JOptionPane.showInputDialog("[1] Todos\n[2] Físico \n[3] Jurídico\n"));
+        String show = "";
+        switch (choose) {
+            case 1:
+                for(int i = 0; i < 10; i++){
+                    if(agenda[i].getName() != null){
+                        System.out.println("AAA");
+                    if (agenda[i] instanceof Fisic) {
+                        Fisic pessoaFisica = (Fisic) agenda[i];
+                    }
+                } else System.out.println("AAAAAAAA");
+            }
+                break;
+        
+            default:
+            JOptionPane.showMessageDialog(null, "ERROR - ENTRADA INVÁLIDA");
+                break;
+        }
+        for (int i = 0; i < agenda.length; i++) {
+            show += agenda[i] + "\n";
+        }
+        JOptionPane.showMessageDialog(null, show);
+    }
+
     public static void main(String[] args) {
         int choose, idFisc = 0, idLegal = 10;
         JOptionPane.showMessageDialog(null, "Bem-vindo à sua agenda pessoal");
         Agenda agenda[] = new Agenda[20];
         for (int i = 0; i < 10; i++) {
             agenda[i] = new Fisic();
+            ((Fisic) agenda[i]).setCpf(0); 
             agenda[i + 10] = new Legal();
+            ((Legal) agenda[i + 10]).setCnpj(0);
         }
 
         while (true) {
@@ -81,6 +108,10 @@ public class Main {
                 case 2:
                     removeContact(agenda);
 
+                    break;
+
+                case 4:
+                    showContacts(agenda);
                     break;
                 case 5:
                     return;
