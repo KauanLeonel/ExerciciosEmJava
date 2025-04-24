@@ -13,6 +13,20 @@ public class Agenda {
         email = JOptionPane.showInputDialog(null, "Insira o email: ");
     }
 
+
+
+    public String show(){
+        String all = "";
+        all += getName() + getAdress() + getEmail();
+        return all;
+    }
+
+    public void delete(){
+        setName(null);
+        setAdress(null);
+        setEmail(null);
+    }
+
     // #region Getters and Setters
     public String getName() {
         return name;

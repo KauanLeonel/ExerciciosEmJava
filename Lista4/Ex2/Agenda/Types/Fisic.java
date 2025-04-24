@@ -19,6 +19,23 @@ public class Fisic extends Agenda {
         maritalStatus = JOptionPane.showInputDialog(null, "Insira o estado cívil: ");
     }
 
+    @Override
+    public String show(){
+        String all = "";
+        all += "CPF: " + getCpf() + "\nNome: "+ getName() + "\nEndereço: " + getAdress() + "\nEmail: " + getEmail() + "\nEstado: " + getMaritalStatus() + "\nData de nascimento: " + getDateOfBirth() + "\n";
+        return all;
+    }
+
+    @Override
+    public void delete(){
+        setName(null);
+        setAdress(null);
+        setEmail(null);
+        setCpf(0);
+        setDateOfBirth(null);
+        setMaritalStatus(null);
+    }
+
     // #region Gettes and Settes
     public int getCpf() {
         return cpf;
