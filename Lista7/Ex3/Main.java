@@ -1,4 +1,7 @@
-package Lista4.Ex2Array;
+package Lista7.Ex3;
+
+import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
