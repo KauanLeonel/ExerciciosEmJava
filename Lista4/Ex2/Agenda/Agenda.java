@@ -13,15 +13,17 @@ public class Agenda {
         email = JOptionPane.showInputDialog(null, "Insira o email: ");
     }
 
+    public boolean isDeleted() {
+        return this.name == null || this.name.isEmpty();
+    }
 
-
-    public String show(){
+    public String show() {
         String all = "";
         all += getName() + getAdress() + getEmail();
         return all;
     }
 
-    public void delete(){
+    public void delete() {
         setName(null);
         setAdress(null);
         setEmail(null);
